@@ -17,11 +17,11 @@ onMounted(async () => {
   // Fade in the card
   cardLoaded.value = true;
 
-  // After slide-in animation completes, remove transition to prevent jitter
+  // After slide-in animation completes, update transition to only include transform
   setTimeout(() => {
     const card = document.querySelector(".tilt-card");
     if (card) {
-      card.style.transition = "none";
+      card.style.transition = "transform 0.6s ease-out, opacity 0.8s ease";
     }
   }, 800);
 });
