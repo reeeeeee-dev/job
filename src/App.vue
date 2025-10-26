@@ -3,7 +3,9 @@ import { RouterLink, RouterView } from "vue-router";
 </script>
 
 <template>
-  <div class="flex gap-4 items-center w-full p-8 overflow-hidden">
+  <div
+    class="flex gap-4 items-center w-full p-8 overflow-hidden bg-linear-to-br from-[#ffffff] to-[#F0E8CC] min-h-screen"
+  >
     <nav class="flex flex-col gap-4 text-left p-8 h-screen justify-center">
       <RouterLink to="/">Home</RouterLink>
       <RouterLink to="/essay">Essay</RouterLink>
