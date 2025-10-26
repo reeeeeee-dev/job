@@ -29,13 +29,13 @@ onMounted(async () => {
 
 <template>
   <div
-    class="flex flex-col gap-4 home-page"
+    class="flex gap-4 justify-evenly home-page w-full"
     :class="{ 'page-loaded': pageLoaded }"
   >
-    <h1>Home</h1>
-    <p>
-      Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quos.
-    </p>
+    <h3 class="text-4xl font-bold justify-center text-center z-50">
+      Job by Alphonse Mucha
+    </h3>
+    <div />
     <img
       src="@/assets/job_transparent.png"
       alt="Job"
