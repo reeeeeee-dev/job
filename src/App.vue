@@ -45,10 +45,30 @@ onMounted(() => {
     <!-- Main Content -->
     <div v-if="isLoaded" class="flex gap-4 items-center w-full">
       <Transition name="fade" appear>
-        <nav class="flex flex-col gap-4 text-left p-8 h-screen justify-center">
-          <RouterLink to="/">Home</RouterLink>
-          <RouterLink to="/essay">Essay</RouterLink>
-          <RouterLink to="/references">References</RouterLink>
+        <nav
+          class="flex flex-col gap-4 text-left p-8 h-screen justify-center text-2xl"
+        >
+          <RouterLink
+            class="nav-link hover:text-yellow transition-colors duration-300 cursor-pointer"
+            active-class="active-link"
+            to="/"
+          >
+            Home
+          </RouterLink>
+          <RouterLink
+            class="nav-link hover:text-yellow transition-colors duration-300 cursor-pointer"
+            active-class="active-link"
+            to="/essay"
+          >
+            Essay
+          </RouterLink>
+          <RouterLink
+            class="nav-link hover:text-yellow transition-colors duration-300 cursor-pointer"
+            active-class="active-link"
+            to="/references"
+          >
+            References
+          </RouterLink>
         </nav>
       </Transition>
 
@@ -116,6 +136,32 @@ onMounted(() => {
 @keyframes spin {
   to {
     transform: rotate(360deg);
+  }
+}
+
+/* Active link underline animation */
+.nav-link {
+  position: relative;
+  text-decoration: none;
+}
+
+.nav-link.active-link::after {
+  content: "";
+  position: absolute;
+  bottom: -4px;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background-color: var(--dark);
+  animation: slideIn 0.3s ease-out;
+}
+
+@keyframes slideIn {
+  from {
+    width: 0;
+  }
+  to {
+    width: 100%;
   }
 }
 </style>

@@ -41,11 +41,16 @@ onMounted(() => {
     isHovering.value = false;
   };
 
-  const links = document.querySelectorAll("a, button, .clickable");
-  links.forEach((link) => {
-    link.addEventListener("mouseenter", handleMouseEnter);
-    link.addEventListener("mouseleave", handleMouseLeave);
-  });
+  const attachListeners = () => {
+    const links = document.querySelectorAll("a, button, .clickable");
+    links.forEach((link) => {
+      link.addEventListener("mouseenter", handleMouseEnter);
+      link.addEventListener("mouseleave", handleMouseLeave);
+    });
+  };
+
+  // Initial attachment after a short delay to ensure DOM is ready
+  setTimeout(attachListeners, 100);
 
   window.addEventListener("mousemove", handleMouseMove);
   updateCursor();
@@ -56,6 +61,7 @@ onMounted(() => {
     if (animationFrameId) {
       cancelAnimationFrame(animationFrameId);
     }
+    const links = document.querySelectorAll("a, button, .clickable");
     links.forEach((link) => {
       link.removeEventListener("mouseenter", handleMouseEnter);
       link.removeEventListener("mouseleave", handleMouseLeave);

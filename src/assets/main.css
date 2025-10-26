@@ -1,2 +1,9 @@
 @import "tailwindcss";
 @import "./base.css";
+
+/* Custom yellow color for hover states */
+@layer base {
+  .hover\:text-yellow:hover {
+    color: var(--yellow);
+  }
+}
