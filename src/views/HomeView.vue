@@ -6,7 +6,6 @@
     <p>
       Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quos.
     </p>
-    <div class="w-full h-full" />
     <img
       src="@/assets/job_transparent.png"
       alt="Job"
