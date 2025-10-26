@@ -23,10 +23,20 @@ onMounted(async () => {
       class="list-inside flex flex-col gap-4 max-w-prose max-h-[calc(2/3*100vh)] overflow-y-auto scrollbar-thin scrollbar-thumb-gray-300 scrollbar-track-gray-100"
     >
       <li>
-        Visconti, Will. "Alphonse Mucha and Art Nouveau: 100 Years after Its
-        Creation, His Work Is Still a Balm for a World in Upheaval."
-        <em>The Conversation</em>, 5 May 2025,
-        theconversation.com/alphonse-mucha-and-art-nouveau-100-years-after-its-creation-his-work-is-still-a-balm-for-a-world-in-upheaval-230674.
+        Foundation, Mucha. “Poster for ‘Job’ Cigarette Paper (1896).”
+        <em>Mucha Foundation</em>,
+        www.muchafoundation.org/en/gallery/browse-works/object/44. Accessed 14
+        Sept. 2025.
+      </li>
+      <li>
+        “Art Nouveau | A Universal Style.” <em>Europeana</em>,
+        www.europeana.eu/en/exhibitions/art-nouveau-a-universal-style. Accessed
+        22 Sept. 2025.
+      </li>
+      <li>
+        Edwards, Angela. “The Rise and Influence of Art Nouveau in the Art
+        World.” <em>Angela Edwards</em>, 9 June 2023,
+        www.angelaedwards.co.uk/the-rise-and-influence-of-art-nouveau-in-the-art-world/.
       </li>
     </ul>
     <img
