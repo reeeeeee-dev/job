@@ -1,8 +1,30 @@
 <script setup>
-import { ref, computed } from "vue";
+import { ref, computed, onMounted, nextTick } from "vue";
 
 const rotateX = ref(0);
 const rotateY = ref(0);
+const cardLoaded = ref(false);
+
+onMounted(async () => {
+  cardLoaded.value = false;
+
+  // Wait for router transition
+  await nextTick();
+
+  // Small delay
+  await new Promise((resolve) => setTimeout(resolve, 50));
+
+  // Fade in the card
+  cardLoaded.value = true;
+
+  // After slide-in animation completes, remove transition to prevent jitter
+  setTimeout(() => {
+    const card = document.querySelector(".tilt-card");
+    if (card) {
+      card.style.transition = "none";
+    }
+  }, 800);
+});
 
 const handleMouseMove = (event) => {
   const card = event.currentTarget;
@@ -26,7 +48,9 @@ const handleMouseLeave = () => {
 };
 
 const transform = computed(() => {
-  return `perspective(1000px) rotateX(${rotateX.value}deg) rotateY(${rotateY.value}deg) scale3d(1, 1, 1)`;
+  const rotation = `perspective(1000px) rotateX(${rotateX.value}deg) rotateY(${rotateY.value}deg) scale3d(1, 1, 1)`;
+  const slideIn = cardLoaded.value ? "translateX(0)" : "translateX(50px)";
+  return `${rotation} ${slideIn}`;
 });
 </script>
 
@@ -34,7 +58,8 @@ const transform = computed(() => {
   <div
     @mousemove="handleMouseMove"
     @mouseleave="handleMouseLeave"
-    class="max-w-xl cursor-pointer transition-transform duration-75 ease-out"
+    class="max-w-xl cursor-pointer tilt-card"
+    :class="{ 'card-loaded': cardLoaded }"
     :style="{ transform }"
   >
     <div
@@ -58,6 +83,16 @@ const transform = computed(() => {
 </template>
 
 <style scoped>
+.tilt-card {
+  opacity: 0;
+  transition: opacity 0.8s ease, transform 0.8s ease;
+  will-change: transform, opacity;
+}
+
+.tilt-card.card-loaded {
+  opacity: 1;
+}
+
 /* Additional smooth transitions */
 div {
   will-change: transform;
