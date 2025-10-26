@@ -6,10 +6,22 @@ const cursorY = ref(0);
 const cursorXSm = ref(0);
 const cursorYSm = ref(0);
 const isHovering = ref(false);
+const isVisible = ref(false);
 
 let animationFrameId;
 
 onMounted(() => {
+  const handleLoad = () => {
+    isVisible.value = true;
+  };
+
+  // Wait for page to be fully loaded before showing cursor
+  if (document.readyState === "complete") {
+    isVisible.value = true;
+  } else {
+    window.addEventListener("load", handleLoad);
+  }
+
   const updateCursor = () => {
     cursorXSm.value += (cursorX.value - cursorXSm.value) * 0.1;
     cursorYSm.value += (cursorY.value - cursorYSm.value) * 0.1;
@@ -40,6 +52,7 @@ onMounted(() => {
 
   onUnmounted(() => {
     window.removeEventListener("mousemove", handleMouseMove);
+    window.removeEventListener("load", handleLoad);
     if (animationFrameId) {
       cancelAnimationFrame(animationFrameId);
     }
@@ -52,20 +65,35 @@ onMounted(() => {
 </script>
 
 <template>
-  <div
-    class="custom-cursor"
-    :class="{ 'cursor-hover': isHovering }"
-    :style="{ left: cursorX + 'px', top: cursorY + 'px' }"
-  >
-    <div class="cursor-dot"></div>
-  </div>
-  <div
-    class="cursor-follower"
-    :style="{ left: cursorXSm + 'px', top: cursorYSm + 'px' }"
-  ></div>
+  <Transition name="fade-cursor">
+    <div
+      v-if="isVisible"
+      class="custom-cursor"
+      :class="{ 'cursor-hover': isHovering }"
+      :style="{ left: cursorX + 'px', top: cursorY + 'px' }"
+    >
+      <div class="cursor-dot"></div>
+    </div>
+  </Transition>
+  <Transition name="fade-cursor">
+    <div
+      v-if="isVisible"
+      class="cursor-follower"
+      :style="{ left: cursorXSm + 'px', top: cursorYSm + 'px' }"
+    ></div>
+  </Transition>
 </template>
 
 <style scoped>
+/* Fade transition for cursor entry */
+.fade-cursor-enter-active {
+  transition: opacity 0.6s ease;
+}
+
+.fade-cursor-enter-from {
+  opacity: 0;
+}
+
 .custom-cursor {
   position: fixed;
   left: 0;
