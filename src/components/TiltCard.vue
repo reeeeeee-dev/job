@@ -55,30 +55,35 @@ const transform = computed(() => {
 </script>
 
 <template>
-  <div
-    @mousemove="handleMouseMove"
-    @mouseleave="handleMouseLeave"
-    class="max-w-xl cursor-pointer tilt-card"
-    :class="{ 'card-loaded': cardLoaded }"
-    :style="{ transform }"
-  >
+  <div class="group">
     <div
-      class="rounded-4xl shadow-2xl flex flex-col justify-between relative overflow-hidden"
+      @mousemove="handleMouseMove"
+      @mouseleave="handleMouseLeave"
+      class="max-w-xl cursor-pointer tilt-card"
+      :class="{ 'card-loaded': cardLoaded }"
+      :style="{ transform }"
     >
-      <!-- Shine effect overlay -->
       <div
-        class="absolute inset-0 opacity-30 bg-linear-to-br from-white/20 to-transparent pointer-events-none"
-      />
-
-      <!-- Content -->
-      <div class="relative z-10">
-        <img
-          src="@/assets/job.jpg"
-          alt="Job"
-          class="w-full h-full object-contain"
+        class="rounded-4xl shadow-2xl flex flex-col justify-between relative overflow-hidden"
+      >
+        <!-- Shine effect overlay -->
+        <div
+          class="absolute inset-0 opacity-30 bg-linear-to-br from-white/20 to-transparent pointer-events-none"
         />
+
+        <!-- Content -->
+        <div class="relative z-10">
+          <img
+            src="@/assets/job.jpg"
+            alt="Job"
+            class="w-full h-full object-contain"
+          />
+        </div>
       </div>
     </div>
+    <p class="mt-4 transition-opacity duration-200 group-hover:opacity-0">
+      Hover me
+    </p>
   </div>
 </template>
 
