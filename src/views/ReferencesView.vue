@@ -38,6 +38,18 @@ onMounted(async () => {
         World.” <em>Angela Edwards</em>, 9 June 2023,
         www.angelaedwards.co.uk/the-rise-and-influence-of-art-nouveau-in-the-art-world/.
       </li>
+      <li>
+        Odriozola, Amaia. “From Kate Moss to Jeremy Allen White: The Secret
+        Formula of the Most Famous White Underwear in History.”
+        <em>EL PAÍS English</em>, 16 Jan. 2024,
+        english.elpais.com/culture/2024-01-16/from-kate-moss-to-jeremy-allen-white-the-secret-formula-of-the-most-famous-white-underwear-in-history.html.
+      </li>
+      <li>
+        Malach, Hannah. “Calvin Klein Advertisements and the Stories behind
+        Them: More than 50 Years of Celebrity and Controversy.” <em>WWD</em>,
+        WWD, 20 Mar. 2025,
+        wwd.com/pop-culture/culture-news/feature/calvin-klein-ads-1236117541/.
+      </li>
     </ul>
     <img
       class="h-[calc(2/3*100vh)] reference-image"
