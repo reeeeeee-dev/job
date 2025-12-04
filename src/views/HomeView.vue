@@ -35,7 +35,7 @@ onMounted(async () => {
     <div class="flex flex-col gap-4 justify-center max-w-prose">
       <h3 class="text-4xl font-bold z-50">Job by Alphonse Mucha</h3>
       <p class="text-lg z-50">
-        Art Nouveau poster comissioned by the Joseph Barbey Tobacco Company in
+        Art Nouveau poster comissioned by the Joseph Bardou Tobacco Company in
         1896.
       </p>
     </div>
