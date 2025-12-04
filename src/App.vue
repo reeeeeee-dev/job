@@ -2,6 +2,7 @@
 import { RouterLink, RouterView } from "vue-router";
 import CustomCursor from "./components/CustomCursor.vue";
 import { ref, onMounted, onUnmounted } from "vue";
+import ExternalLinkIcon from "@/assets/external_link.svg";
 
 const isLoaded = ref(false);
 
@@ -69,6 +70,14 @@ onMounted(() => {
           >
             References
           </RouterLink>
+          <a
+            class="nav-link hover:text-yellow transition-colors duration-300 cursor-pointer"
+            href="https://www.muchafoundation.org/en/gallery/browse-works/object/44"
+            target="_blank"
+          >
+            Mucha Foundation
+            <ExternalLinkIcon class="size-4 inline-block text-yellow" />
+          </a>
         </nav>
       </Transition>
 
