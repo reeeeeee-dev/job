@@ -32,9 +32,13 @@ onMounted(async () => {
     class="flex gap-4 justify-evenly home-page w-full"
     :class="{ 'page-loaded': pageLoaded }"
   >
-    <h3 class="text-4xl font-bold justify-center text-center z-50">
-      Job by Alphonse Mucha
-    </h3>
+    <div class="flex flex-col gap-4 justify-center max-w-prose">
+      <h3 class="text-4xl font-bold z-50">Job by Alphonse Mucha</h3>
+      <p class="text-lg z-50">
+        Art Nouveau poster comissioned by the Joseph Barbey Tobacco Company in
+        1896.
+      </p>
+    </div>
     <div />
     <img
       src="@/assets/job_transparent.png"
